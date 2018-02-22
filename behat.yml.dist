@@ -1,0 +1,30 @@
+default:
+    formatters:
+        pretty:
+            verbose: true
+            paths: false
+            snippets: false
+    suites:
+        homepage:
+            paths:
+                - 'features/homepage'
+            contexts:
+                - App\Behat\Context\FeatureContext: { doctrine: '@doctrine' }
+                - App\Behat\Context\HomepageContext: { commandBus: '@tactician.commandbus.command', queryBus: '@tactician.commandbus.query' }
+
+    extensions:
+        Behat\Symfony2Extension:
+            kernel:
+                bootstrap: features/bootstrap/bootstrap.php
+                class: App\Kernel
+        Behat\MinkExtension:
+            base_url: "http://localhost/"
+            sessions:
+                default:
+                    symfony2: ~
+        SensioLabs\Behat\PageObjectExtension: ~
+
+        Lakion\Behat\MinkDebugExtension:
+            directory: var/build
+            clean_start: true
+            screenshot: true

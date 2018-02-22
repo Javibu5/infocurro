@@ -1,0 +1,3 @@
+nelmio_alice:
+    locale: 'es_ES'
+    seed: 1

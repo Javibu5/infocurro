@@ -1,0 +1,246 @@
+{% extends "layout_with_header.html.twig" %}
+
+{% block title %}Contactar{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        #google-map,
+        body,
+        html {
+            padding: 0;
+            height: 460px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div id="google-map"></div>
+
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2 class="medium-title">
+                        Contact Us
+                    </h2>
+                    <div class="information">
+                        <div class="contact-datails">
+                            <div class="icon">
+                                <i class="ti-location-pin"></i>
+                            </div>
+                            <div class="info">
+                                <h3>Address</h3>
+                                <span class="detail">Main Office: NO.22-23 Street Name- City,Country</span>
+                                <span class="datail">Customer Center: NO.130-45 Streen Name- City, Country</span>
+                            </div>
+                        </div>
+                        <div class="contact-datails">
+                            <div class="icon">
+                                <i class="ti-mobile"></i>
+                            </div>
+                            <div class="info">
+                                <h3>Phone Numbers</h3>
+                                <span class="detail">Main Office: +880 123 456 789</span>
+                                <span class="datail">Customer Supprort: +880 123 456 789 </span>
+                            </div>
+                        </div>
+                        <div class="contact-datails">
+                            <div class="icon">
+                                <i class="ti-location-arrow"></i>
+                            </div>
+                            <div class="info">
+                                <h3>Email Address</h3>
+                                <span class="detail">Customer Support: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="11787f777e517c70787d3f727e7c">[email&#160;protected]</a></span>
+                                <span class="detail">Technical Support: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="582b2d2828372a2c1835393134763b3735">[email&#160;protected]</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+
+                    <form id="contactForm" class="contact-form" data-toggle="validator">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required data-error="Please enter your name">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="email" placeholder="mail@sitename.com" required data-error="Please enter your email">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Subject" id="msg_subject" class="form-control" required data-error="Please enter your subject">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="message" placeholder="Massage" rows="11" data-error="Write your message" required></textarea>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button type="submit" id="submit" class="btn btn-common">Send Us</button>
+                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block javascripts %}
+{{ parent() }}
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaQubNLYUR839cJApe2xsUmjCMmVGQlJ0"></script>
+
+<script type="text/javascript">
+    var map;
+    var officeCoordinates = new google.maps.LatLng(37.915627,-4.7215,19);
+    var mapCoordinates = new google.maps.LatLng(37.915627,-4.7219912,19);
+
+    var markers = [];
+    var image = new google.maps.MarkerImage(
+        'assets/img/map-marker.png',
+        new google.maps.Size(84, 70),
+        new google.maps.Point(0, 0),
+        new google.maps.Point(60, 60)
+    );
+
+    function addMarker() {
+        markers.push(new google.maps.Marker({
+                position: officeCoordinates,
+                raiseOnDrag: false,
+                icon: image,
+                map: map,
+                draggable: false
+            }
+        ));
+
+    }
+
+    function initialize() {
+        var mapOptions = {
+                backgroundColor: "#ffffff",
+                zoom: 16,
+                disableDefaultUI: true,
+                center: mapCoordinates,
+                zoomControl: false,
+                scaleControl: false,
+                scrollwheel: false,
+                disableDoubleClickZoom: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                styles: [{
+                    "featureType": "landscape.natural",
+                    "elementType": "geometry.fill",
+                    "stylers": [{
+                        "color": "#ffffff"
+                    }
+                    ]
+                }
+                    , {
+                        "featureType": "landscape.man_made",
+                        "stylers": [{
+                            "color": "#ffffff"
+                        }
+                            , {
+                                "visibility": "off"
+                            }
+                        ]
+                    }
+                    , {
+                        "featureType": "water",
+                        "stylers": [{
+                            "color": "#80C8E5"
+                        }
+                            , {
+                                "saturation": 0
+                            }
+                        ]
+                    }
+                    , {
+                        "featureType": "road.arterial",
+                        "elementType": "geometry",
+                        "stylers": [{
+                            "color": "#999999"
+                        }
+                        ]
+                    }
+                    , {
+                        "elementType": "labels.text.stroke",
+                        "stylers": [{
+                            "visibility": "off"
+                        }
+                        ]
+                    }
+                    , {
+                        "elementType": "labels.text",
+                        "stylers": [{
+                            "color": "#333333"
+                        }
+                        ]
+                    }
+
+                    , {
+                        "featureType": "road.local",
+                        "stylers": [{
+                            "color": "#dedede"
+                        }
+                        ]
+                    }
+                    , {
+                        "featureType": "road.local",
+                        "elementType": "labels.text",
+                        "stylers": [{
+                            "color": "#666666"
+                        }
+                        ]
+                    }
+                    , {
+                        "featureType": "transit.station.bus",
+                        "stylers": [{
+                            "saturation": -57
+                        }
+                        ]
+                    }
+                    , {
+                        "featureType": "road.highway",
+                        "elementType": "labels.icon",
+                        "stylers": [{
+                            "visibility": "off"
+                        }
+                        ]
+                    }
+                    , {
+                        "featureType": "poi",
+                        "stylers": [{
+                            "visibility": "off"
+                        }
+                        ]
+                    }
+
+                ]
+
+            }
+        ;
+        map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+        addMarker();
+
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+{% endblock %}

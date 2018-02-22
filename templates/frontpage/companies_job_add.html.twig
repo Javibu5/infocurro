@@ -1,0 +1,129 @@
+{% extends "layout_with_header.html.twig" %}
+
+{% block title %}Añadir oferta{% endblock %}
+
+{% block content %}
+
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-9 col-md-offset-2">
+                    <fieldset>
+                        <label>Have an account?</label>
+                        <div class="field account-sign-in">
+                            <p>
+                                <a class="btn btn-common btn-sm" href="my-account.html"><i class="ti-key"></i> Sign in</a>
+                            </p>
+                            <div class="alert alert-info alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times"></i></button>
+                                If you don’t have an account you can create one below by entering your email address. A password will be automatically emailed to you.
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="page-ads box">
+                        <form class="form-ad">
+                            <div class="form-group">
+                                <label class="control-label">Your Email</label>
+                                <input type="text" class="form-control" placeholder="mail@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Job Title</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Location <span>(optional)</span></label>
+                                <input type="text" class="form-control" placeholder="e.g.London">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Category</label>
+                                <div class="search-category-container">
+                                    <label class="styled-select">
+                                        <select class="dropdown-product selectpicker">
+                                            <option>All Categories</option>
+                                            <option>Finance</option>
+                                            <option>IT & Engineering</option>
+                                            <option>Education/Training</option>
+                                            <option>Art/Design</option>
+                                            <option>Sale/Markting</option>
+                                            <option>Healthcare</option>
+                                            <option>Science</option>
+                                            <option>Food Services</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="textarea">Job Tags <span>(optional)</span></label>
+                                <input type="text" class="form-control" placeholder="e.g.PHP,Social Media,Management">
+                                <p class="note">Comma separate tags, such as required skills or technologies, for this job.</p>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Description</label>
+                            </div>
+                            <section id="editor">
+                                <div id="summernote"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quia aut modi fugit, ratione saepe perferendis odio optio repellat dolorum voluptas excepturi possimus similique veritatis nobis. Provident cupiditate delectus, optio?</p></div>
+                            </section>
+                            <div class="form-group">
+                                <label class="control-label">Application email / URL</label>
+                                <input type="text" class="form-control" placeholder="Enter an email address or website URL">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Closing Date <span>(optional)</span></label>
+                                <input type="text" class="form-control" placeholder="yyyy-mm-dd">
+                                <p class="note">Deadline for new applicants.</p>
+                            </div>
+                            <div class="divider"><h3>Company Details</h3></div>
+                            <div class="form-group">
+                                <label class="control-label">Company Name</label>
+                                <input type="text" class="form-control" placeholder="Enter the name of the company">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Website <span>(optional)</span></label>
+                                <input type="text" class="form-control" placeholder="http://">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Tagline <span>(optional)</span></label>
+                                <input type="text" class="form-control" placeholder="Briefly describe your company">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Tagline <span>(optional)</span></label>
+                                <input type="text" class="form-control" placeholder="Briefly describe your company">
+                            </div>
+                            <div class="form-group">
+                                <div class="button-group">
+                                    <div class="action-buttons">
+                                        <div class="upload-button">
+                                            <button class="btn btn-common btn-sm">Browse</button>
+                                            <input id="cover_img_file" type="file">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-common">Submit your job</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('assets/extras/summernote.css') }}" type="text/css">
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('assets/js/summernote.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            height: 250,                 // set editor height
+            minHeight: null,             // set minimum height of editor
+            maxHeight: null,             // set maximum height of editor
+            focus: true                  // set focus to editable area after initializing summernote
+        });
+    });
+</script>
+{% endblock %}

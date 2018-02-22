@@ -1,0 +1,94 @@
+# Inicio
+
+homepage:
+    path: /
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: frontpage/homepage.html.twig
+
+# Estáticas
+
+about:
+    path: /about
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: frontpage/about.html.twig
+contact:
+    path: /contact
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: frontpage/contact.html.twig
+
+# Seguridad
+
+login:
+    path: /login
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: frontpage/login.html.twig
+
+register:
+    path: /register
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: frontpage/register.html.twig
+
+recover_password:
+    path: /recover_password
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: frontpage/recover_password.html.twig
+
+change_password:
+    path: /change_password
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: frontpage/change_password.html.twig
+
+# Candidatos
+
+jobs_list:
+    path: /jobs
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: frontpage/jobs_list.html.twig
+
+jobs_show:
+    path: /jobs/show
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: frontpage/jobs_show.html.twig
+
+# Perfil
+
+resume_edit:
+    path: /profile/resume/edit
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: frontpage/resume_edit.html.twig
+
+resume_show:
+    path: /profile/resume/show
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: frontpage/resume_show.html.twig
+
+# Compañías
+
+companies_job_add:
+    path: /companies/jobs/add
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: frontpage/companies_job_add.html.twig
+
+companies_job_list:
+    path: /companies/jobs
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: frontpage/companies_job_list.html.twig
+
+companies_job_application_list:
+    path: /companies/jobs/applications
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+        template: frontpage/companies_applications_list.html.twig

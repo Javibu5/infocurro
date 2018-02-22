@@ -1,0 +1,67 @@
+{% extends "layout_with_header.html.twig" %}
+
+{% block title %}Mi cuenta{% endblock %}
+
+{% block content %}
+    <div id="content" class="my-account">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-6 cd-user-modal">
+                    <div class="my-account-form">
+                        <ul class="cd-switcher">
+                            <li><a href="{{ path('login') }}">LOGIN</a></li>
+                            <li><a class="selected">REGISTER</a></li>
+                        </ul>
+
+                        <div id="cd-signup" class="is-selected">
+                            <div class="page-login-form register">
+                                <form role="form" class="login-form">
+                                    <div class="form-group">
+                                        <div class="input-icon">
+                                            <i class="ti-user"></i>
+                                            <input type="text" id="sender-email" class="form-control" name="name" placeholder="Username">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-icon">
+                                            <i class="ti-email"></i>
+                                            <input type="text" id="sender-email" class="form-control" name="email" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-icon">
+                                            <i class="ti-lock"></i>
+                                            <input type="password" class="form-control" placeholder="Password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-icon">
+                                            <i class="ti-lock"></i>
+                                            <input type="password" class="form-control" placeholder="Repeat Password">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-common log-btn">Register</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="page-login-form" id="cd-reset-password">
+                            <p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+                            <form class="cd-form">
+                                <div class="form-group">
+                                    <div class="input-icon">
+                                        <i class="ti-email"></i>
+                                        <input type="text" id="sender-email" class="form-control" name="email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <p class="fieldset">
+                                    <button class="btn btn-common log-btn" type="submit">Reset password</button>
+                                </p>
+                            </form>
+                            <p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

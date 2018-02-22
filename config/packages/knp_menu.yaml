@@ -1,0 +1,15 @@
+services:
+    App\Menu\MenuBuilder:
+        arguments: ['@knp_menu.factory']
+        tags:
+            - { name: knp_menu.menu_builder, method: mainMenu, alias: main }
+            - { name: knp_menu.menu_builder, method: mobileMenu, alias: mobile }
+            - { name: knp_menu.menu_builder, method: loginMenu, alias: login }
+
+    App\Menu\MenuRenderer:
+        arguments:
+            - '@knp_menu.matcher'
+            - '%knp_menu.renderer.list.options%'
+            - '%kernel.charset%'
+        tags:
+            - { name: 'knp_menu.renderer', alias: infocurro}
